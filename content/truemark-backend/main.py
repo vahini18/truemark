@@ -1,23 +1,22 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
-import joblib  # ✅ Use joblib for compressed model
+import pickle
 import os
 
 app = FastAPI()
 
-# ✅ Load the compressed ML model
+# ✅ Load the ML model from root directory
 model_path = os.path.join(os.path.dirname(__file__), "content/truemark-backend/fakeproduct_tm_model.pkl")
 with open(model_path, "rb") as f:
-    model = joblib.load(f)
+    model = pickle.load(f)
 
 @app.get("/")
 def read_root():
-    return JSONResponse(content={"message": "TrueMark API is live on Vercel 🚀"})
+    return JSONResponse(content={"message": "TrueMark API is live on Render 🚀"})
 
 @app.post("/predict/")
 def predict(data: dict):
     try:
-        # Example: Assuming your model expects a list of features
         features = data.get("features", [])
         prediction = model.predict([features])
         return {"prediction": prediction[0]}
