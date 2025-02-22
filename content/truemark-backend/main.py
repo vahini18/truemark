@@ -6,7 +6,7 @@ import os
 app = FastAPI()
 
 # Load the trained ML model
-model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
+model_path = os.path.join(os.path.dirname(__file__), "content/truemark-backend/fake_product_model.pkl")
 with open(model_path, "rb") as f:
     model = pickle.load(f)
 
