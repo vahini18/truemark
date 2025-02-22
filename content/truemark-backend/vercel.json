@@ -11,5 +11,13 @@
       "src": "/(.*)",
       "dest": "main.py"
     }
+  ],
+  "functions": {
+    "api/**/*.py": {
+      "maxLambdaSize": "50mb"
+    }
+  },
+  "ignore": [
+    "content/truemark-backend/large_unused_files/*"
   ]
 }
