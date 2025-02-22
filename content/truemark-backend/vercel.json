@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "main.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
@@ -12,11 +15,6 @@
       "dest": "main.py"
     }
   ],
-  "functions": {
-    "api/**/*.py": {
-      "maxLambdaSize": "50mb"
-    }
-  },
   "ignore": [
     "content/truemark-backend/large_unused_files/*"
   ]
