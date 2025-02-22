@@ -1,0 +1,5 @@
+# .vercelignore
+content/truemark-backend/large_unused_files/*
+*.zip
+*.tar.gz
+*.pkl
